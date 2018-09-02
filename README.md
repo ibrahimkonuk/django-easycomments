@@ -94,7 +94,6 @@ Views.py:
 
 Provide a template (e.g. post_detail.html) that displays the comments for the object (e.g. article or blog entry):
 
-Comment form:
 ```
   {% if request.user.is_authenticated %}
       <p>Comment</p>

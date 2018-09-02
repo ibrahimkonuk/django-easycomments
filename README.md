@@ -1,4 +1,4 @@
-django-easycomments
+#django-easycomments
 
 django-easycomments is a Django application which allows for the simple creation of a threaded commenting system. Commenters can reply both to the original item, and reply to other comments as well.
 

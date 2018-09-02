@@ -7,24 +7,26 @@ The application can be easily extended by other modules.
 _Installation_
 
 Install the package via pip:
-pip install django-easycomments
+```pip install django-easycomments```
 It's preferred to install the module in a virtual environment.
 
 _Configuration_
 
 Add the following to settings.py:
-
+```
 INSTALLED_APPS += (
     'django-easycomments'
 )
 
 COMMENTS_APP = 'django-easycomments'
+```
 
 ----------------------------------------------------------------
 
 Models.py:
 
 Add this properties at the end of your model that you want to comment.
+``` 
   from django.contrib.contenttypes.models import ContentType
   
   @property
@@ -38,13 +40,13 @@ Add this properties at the end of your model that you want to comment.
       instance = self
       content_type = ContentType.objects.get_for_model(instance.__class__)
       return content_type
-      
+```   
 ----------------------------------------------------------------
 
 Views.py:
   Integrate this codes in your (e.g. post_detail) view to add your model comment form and threads.
   instance is the model that you want to comment (e.g. post)
-  
+  ```
   from comments.models import Comment
   from comments.forms import CommentForm
  
@@ -87,13 +89,13 @@ Views.py:
         "comment_form":form,
         }
    return render(request, "app_name/post_detail.html",context)
-
+```
 ----------------------------------------------------------------
 
 Provide a template (e.g. post_detail.html) that displays the comments for the object (e.g. article or blog entry):
 
 Comment form:
-
+```
   {% if request.user.is_authenticated %}
       <p>Comment</p>
       <form method="POST"> {% csrf_token %}
@@ -125,3 +127,4 @@ Comment form:
           <p >No comments posted yet.</p>
 
 {% endfor %}
+```

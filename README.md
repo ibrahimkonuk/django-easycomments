@@ -1,18 +1,18 @@
-#django-easycomments
+# Django easy comments 
 
-django-easycomments is a Django application which allows for the simple creation of a threaded commenting system. Commenters can reply both to the original item, and reply to other comments as well.
+This is a Django application that allows for the simple creation of a threaded commenting system. Commenters can reply both to the original item, and reply to other comments as well.
 
 The application can be easily extended by other modules.
 
-_Installation_
+## Installation
 
-Install the package via pip:
+Install the package via _pip_:
 ```pip install django-easycomments```
 It's preferred to install the module in a virtual environment.
 
-_Configuration_
+## Configuration
 
-Add the following to settings.py:
+Add the following to `settings.py`:
 ```
 INSTALLED_APPS += (
     'django-easycomments'
@@ -23,9 +23,9 @@ COMMENTS_APP = 'django-easycomments'
 
 ----------------------------------------------------------------
 
-Models.py:
+`models.py`:
 
-Add this properties at the end of your model that you want to comment.
+Add these properties at the end of your model that you want to comment on.
 ``` 
   from django.contrib.contenttypes.models import ContentType
   
@@ -43,9 +43,10 @@ Add this properties at the end of your model that you want to comment.
 ```   
 ----------------------------------------------------------------
 
-Views.py:
-  Integrate this codes in your (e.g. post_detail) view to add your model comment form and threads.
-  instance is the model that you want to comment (e.g. post)
+`views.py`:
+
+  Integrate this code in your (e.g. post_detail) view to add your model comment form and threads.
+  Instance is the model that you want to comment (e.g. post)
   ```
   from comments.models import Comment
   from comments.forms import CommentForm

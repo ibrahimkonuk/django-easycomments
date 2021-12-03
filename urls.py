@@ -4,7 +4,6 @@ from django.contrib import admin
 from .views import (
     comment_thread,
     comment_delete
-
     )
 
 app_name = 'comments'

@@ -1,32 +1,21 @@
 {% extends "blog/base.html" %}
-
 {% load crispy_forms_tags %}
 
-
 {% block head_title %}
-{{ instance.title }} | {{ block.super }}
+	{{ instance.title }} | {{ block.super }}
 {% endblock head_title %}
-
-
 
 {% block content %}
 
-<div class="container">
-	<div class='container col-lg-8'>
-
-	 			 <p>Confirm Delete</p>
-	        
-	      
-	            <form method="POST" action="."> {% csrf_token %}
-	                <p>Are you sure you want to delete: "{{ object.content }}"?</p>
-	                <input type='submit' value='Confirm' class='btn btn-red'>
-	                <a href='{{ object.get_absolute_url }}' class='btn btn-warning'>Cancel</a>
-	            </form>
-	        
-	    
-
-	       
+	<div class="container">
+		<div class='container col-lg-8'>
+			<p>Confirm Delete</p>
+			<form method="POST" action="."> {% csrf_token %}
+				<p>Are you sure you want to delete: "{{ object.content }}"?</p>
+				<input type='submit' value='Confirm' class='btn btn-red'>
+				<a href='{{ object.get_absolute_url }}' class='btn btn-warning'>Cancel</a>
+			</form>
+		</div>
 	</div>
-</div>
 
 {% endblock content %}
